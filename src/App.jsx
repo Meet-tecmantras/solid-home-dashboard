@@ -299,7 +299,7 @@ function App() {
             <button classList={{ active: filter() === "active" }} onClick={() => setFilter("active")}>
               Active
             </button>
-            <button classList={{ active: filter() === "completed" }} onClick(() => setFilter("completed")}>
+            <button classList={{ active: filter() === "completed" }} onClick{() => setFilter("completed")}>
               Completed
             </button>
           </div>
