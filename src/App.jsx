@@ -81,7 +81,7 @@ function App() {
 
   const updateTime = () => setTime(new Date());
   const interval = setInterval(updateTime, 1000);
-  onCleanup(() => clearInterval(interval));
+  onCleanup(() => clearInterval(internal));
 
   createEffect(() => {
     document.documentElement.setAttribute("data-theme", theme());
@@ -299,7 +299,7 @@ function App() {
             <button classList={{ active: filter() === "active" }} onClick={() => setFilter("active")}>
               Active
             </button>
-            <button classList={{ active: filter() === "completed" }} onClick{() => setFilter("completed")}>
+            <button classList={{ active: filter() === "completed" }} onClick={() => setFilter("completed")}>
               Completed
             </button>
           </div>
