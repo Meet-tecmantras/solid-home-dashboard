@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: #111827;
+  background-color: #f5f7fb;
+  --background: #f5f7fb;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --accent: #34d399;
+  --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  --glass: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] {
+  color: #f9fafb;
+  background-color: #0f172a;
+  --background: #0f172a;
+  --panel: #1e293b;
+  --border: #334155;
+  --text-muted: #94a3b8;
+  --primary: #38bdf8;
+  --accent: #6ee7b7;
+  --shadow: 0 20px 45px rgba(2, 6, 23, 0.8);
+  --glass: rgba(15, 23, 42, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.app-shell {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+h1 {
+  margin: 8px 0 0;
+  font-size: 2.5rem;
+}
+
+.theme-toggle {
+  border: none;
+  background: var(--glass);
+  color: inherit;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.panel {
+  border-radius: 24px;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.subtle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.time-display {
+  font-size: 2.75rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.date-display {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.location-form,
+.todo-input {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="checkbox"],
+input[type="text"] {
+  font-family: inherit;
+}
+
+.location-form input,
+.todo-input input {
+  flex: 1;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  color: inherit;
+}
+
+[data-theme="dark"] .location-form input,
+[data-theme="dark"] .todo-input input {
+  background: rgba(15, 23, 42, 0.4);
+  border-color: var(--border);
+}
+
+.location-form button,
+.todo-input button,
+.filter button,
+.refresh,
+.ghost {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.location-form button,
+.todo-input button {
+  background: var(--primary);
+  color: white;
+}
+
+.location-form button:hover,
+.todo-input button:hover,
+.refresh:hover {
+  opacity: 0.9;
+}
+
+.weather-details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.weather-icon {
+  font-size: 2rem;
+}
+
+.weather-temp {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.weather-location {
+  margin: 2px 0;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filters button {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: inherit;
+}
+
+.filters button.active {
+  background: var(--accent);
+  color: #0f172a;
+  border-color: var(--accent);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.todo-item span.completed {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-item span {
+  flex: 1;
+}
+
+.ghost {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0;
+}
+
+.quote-panel blockquote {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.quote-panel footer {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.refresh {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 20px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
